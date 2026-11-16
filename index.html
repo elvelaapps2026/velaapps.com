@@ -85,6 +85,8 @@ h2.title{font-size:clamp(30px,3.6vw,42px);line-height:1.15;margin:8px 0 14px}
 .gallery figure:first-child{margin-left:auto}.gallery figure:last-child{margin-right:auto}.gallery{scrollbar-width:none}.gallery::-webkit-scrollbar{display:none}
 .gallery figcaption{margin-top:12px;color:var(--muted);font-size:15px}
 
+.bteaser{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:26px}.bteaser a{position:relative;border-radius:20px;overflow:hidden;aspect-ratio:4/3;display:block;color:#fff;text-decoration:none}.bteaser img{width:100%;height:100%;object-fit:cover;transition:transform .4s}.bteaser a:hover img{transform:scale(1.05)}.bteaser span{position:absolute;left:0;right:0;bottom:0;padding:30px 16px 12px;background:linear-gradient(transparent,rgba(20,10,5,.8));font:600 18px Georgia,serif}
+@media(max-width:860px){.bteaser{grid-template-columns:1fr 1fr}}
 /* about */
 .about{background:linear-gradient(135deg,#2b1a12,#4a2616);color:#f3e6d6;border-radius:30px;padding:46px;display:grid;grid-template-columns:1.3fr 1fr;gap:30px;align-items:center}
 .about h2{color:#fff6ea}
@@ -127,7 +129,7 @@ footer a{color:var(--accent);text-decoration:none}
 
 <nav><div class="wrap">
   <a class="brand" href="#"><svg viewBox="0 0 32 32"><path d="M16 3c3 4 5 6.5 5 9.5a5 5 0 0 1-10 0C11 9.5 13 7 16 3Z" fill="#f3c77a"/><path d="M8 20h16l-2 7H10l-2-7Z" fill="#e9d6bd"/><rect x="6" y="18" width="20" height="3" rx="1.5" fill="#e9d6bd"/></svg>Vela Apps</a>
-  <div class="links"><a href="#apps">Apps</a><a href="#nosotros">Nosotros</a><a href="#contacto">Contacto</a></div>
+  <div class="links"><a href="#apps">Apps</a><a href="/blog/">Blog</a><a href="#nosotros">Nosotros</a><a href="#contacto">Contacto</a></div>
 </div></nav>
 
 <header class="hero">
@@ -191,6 +193,21 @@ footer a{color:var(--accent);text-decoration:none}
       <figure><div class="phone"><img src="img/lampara-1.jpg" alt="Versículo del día" loading="lazy"></div><figcaption>Tu versículo de cada día</figcaption></figure>
       <figure><div class="phone"><img src="img/lampara-3.jpg" alt="Camino" loading="lazy"></div><figcaption>Aprende jugando</figcaption></figure>
       <figure><div class="phone"><img src="img/lampara-4.jpg" alt="Temas" loading="lazy"></div><figcaption>154 temas de la vida</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:10px">
+  <div class="wrap">
+    <div class="reveal" style="display:flex;flex-wrap:wrap;gap:18px;align-items:flex-end;justify-content:space-between">
+      <div><div class="kicker">Blog</div><h2 class="title serif" style="margin-bottom:6px">Lo que dice la Biblia sobre tu vida</h2><p class="sub" style="margin:0">154 temas con sus pasajes: familia, ansiedad, perdón, trabajo y más.</p></div>
+      <a class="btn primary" href="/blog/">Ver todos los temas →</a>
+    </div>
+    <div class="bteaser reveal">
+      <a href="/blog/la-familia/"><img src="/blog/img/t-la-familia.jpg" alt="" loading="lazy"><span>La familia</span></a>
+      <a href="/blog/ansiedad-y-preocupacion/"><img src="/blog/img/t-ansiedad-y-preocupacion.jpg" alt="" loading="lazy"><span>Ansiedad y preocupación</span></a>
+      <a href="/blog/perdonar-a-otros/"><img src="/blog/img/t-perdonar-a-otros.jpg" alt="" loading="lazy"><span>Perdonar a otros</span></a>
+      <a href="/blog/matrimonio/"><img src="/blog/img/t-matrimonio.jpg" alt="" loading="lazy"><span>Matrimonio</span></a>
     </div>
   </div>
 </section>
