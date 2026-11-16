@@ -3,43 +3,233 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Vela Apps</title>
-<meta name="description" content="Vela Apps — aplicaciones hechas en Mérida, Yucatán.">
+<title>Vela Apps · Apps sencillas para la vida diaria</title>
+<meta name="description" content="Vela Apps: aplicaciones sencillas y bonitas, hechas con cariño en Mérida, Yucatán. Conoce Lámpara · Encuentra la Palabra.">
+<meta property="og:title" content="Vela Apps">
+<meta property="og:description" content="Apps sencillas que sirven para la vida diaria. Hechas en Mérida, Yucatán.">
+<meta property="og:image" content="https://elvelaapps.com/img/lampara-1.jpg">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 3c3 4 5 6.5 5 9.5a5 5 0 0 1-10 0C11 9.5 13 7 16 3Z' fill='%23e3a83a'/%3E%3Cpath d='M8 20h16l-2 7H10l-2-7Z' fill='%23a8552c'/%3E%3Crect x='6' y='18' width='20' height='3' rx='1.5' fill='%23a8552c'/%3E%3C/svg%3E">
 <style>
-:root{--bg:#f7f2ea;--card:#fffdf9;--ink:#2b2420;--muted:#7a6d63;--accent:#a8552c;--gold:#e3a83a;--line:#eadfd2}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
-.wrap{max-width:760px;margin:0 auto;padding:28px 20px 60px}
-header{display:flex;align-items:center;gap:10px;font-weight:700;font-size:20px}
-header svg{width:30px;height:30px}
-h1{font-family:Georgia,serif;font-size:34px;line-height:1.2;margin:42px 0 8px}
-.lead{color:var(--muted);font-size:18px;margin:0 0 32px}
-.app{display:flex;gap:18px;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:18px;align-items:center}
-.app img{width:110px;height:110px;border-radius:18px;object-fit:cover;flex:none}
-.app h2{margin:0 0 4px;font-family:Georgia,serif;font-size:24px}
-.app p{margin:0 0 10px;color:var(--muted)}
-.app a{color:var(--accent);font-weight:600;text-decoration:none;margin-right:14px}
-.soon{margin-top:16px;color:var(--muted);font-size:15px}
-footer{margin-top:48px;color:var(--muted);font-size:14px;border-top:1px solid var(--line);padding-top:16px}
-footer a{color:var(--accent)}
-@media(max-width:520px){.app{flex-direction:column;align-items:flex-start}h1{font-size:28px}}
+:root{--bg:#f7f2ea;--card:#fffdf9;--ink:#2b2420;--muted:#7a6d63;--accent:#a8552c;--gold:#e3a83a;--line:#eadfd2;--night:#1f1612}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+.serif{font-family:Georgia,"Times New Roman",serif}
+
+/* nav */
+nav{position:absolute;top:0;left:0;right:0;z-index:5}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:74px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:20px;color:#fff6ea;text-decoration:none}
+.brand svg{width:28px;height:28px}
+nav .links a{color:#e9d6bd;text-decoration:none;margin-left:22px;font-size:15px}
+nav .links a:hover{color:#fff}
+
+/* hero */
+.hero{position:relative;overflow:hidden;color:#fff6ea;background:radial-gradient(900px 520px at 72% 38%,#7a3a1c 0%,#3a2015 45%,var(--night) 80%)}
+.hero:after{content:"";position:absolute;inset:auto 0 0 0;height:90px;background:linear-gradient(transparent,var(--bg))}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:30px;align-items:center;padding-top:120px;padding-bottom:110px;position:relative;z-index:2}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#f3c77a;background:rgba(243,199,122,.1);border:1px solid rgba(243,199,122,.25);padding:6px 12px;border-radius:99px}
+.hero h1{font-size:clamp(38px,5.4vw,62px);line-height:1.06;margin:18px 0 18px;font-weight:700;letter-spacing:-.01em}
+.hero h1 em{font-style:normal;background:linear-gradient(90deg,#ffd98a,#f0a531);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p.lead{font-size:19px;color:#e9d6bd;max-width:480px;margin:0 0 30px}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 22px;border-radius:14px;font-weight:600;text-decoration:none;font-size:16px;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn.primary{background:linear-gradient(135deg,#f0a531,#c8692f);color:#2a160c;box-shadow:0 10px 30px rgba(240,165,49,.35)}
+.btn.ghost{border:1px solid rgba(255,246,234,.3);color:#fff6ea}
+
+/* candle */
+.flame-wrap{position:relative;display:flex;justify-content:center;align-items:center;min-height:420px}
+.glow{position:absolute;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(255,200,110,.45),rgba(255,170,70,.12) 45%,transparent 70%);animation:breathe 4s ease-in-out infinite}
+.phones{position:relative;width:340px;height:430px}
+.phone{position:absolute;width:190px;border-radius:30px;padding:7px;background:#120c09;box-shadow:0 30px 60px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.08);overflow:hidden}
+.phone img{display:block;width:100%;border-radius:24px}
+.phone.p1{left:75px;top:0;z-index:3;transform:rotate(0deg)}
+.phone.p2{left:-30px;top:50px;transform:rotate(-9deg);opacity:.9}
+.phone.p3{left:180px;top:50px;transform:rotate(9deg);opacity:.9}
+@keyframes breathe{0%,100%{transform:scale(1);opacity:.9}50%{transform:scale(1.08);opacity:1}}
+@keyframes flick{0%,100%{transform:scaleY(1) rotate(-1deg)}50%{transform:scaleY(1.06) rotate(1.5deg)}}
+
+/* sections */
+section{padding:70px 0}
+.kicker{color:var(--accent);font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase}
+h2.title{font-size:clamp(30px,3.6vw,42px);line-height:1.15;margin:8px 0 14px}
+.sub{color:var(--muted);max-width:620px;margin:0 0 36px;font-size:18px}
+
+/* app feature */
+.appcard{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:28px;padding:30px;box-shadow:0 20px 50px rgba(90,50,20,.08)}
+.appicon{width:120px;height:120px;border-radius:28px;background:linear-gradient(135deg,#b8612f,#5e2c16);display:grid;place-items:center;box-shadow:0 12px 30px rgba(168,85,44,.35)}
+.appicon svg{width:70px;height:70px;animation:flick 3s ease-in-out infinite;transform-origin:50% 90%}
+.appcard h3{font-size:30px;margin:0 0 6px}
+.appcard p{margin:0 0 14px;color:var(--muted)}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.tag{font-size:13px;padding:5px 11px;border-radius:99px;background:#f3e6d6;color:#6b3a1f;font-weight:600}
+.badge{display:inline-flex;align-items:center;gap:10px;background:#111;color:#fff;border-radius:12px;padding:9px 16px;text-decoration:none;font-size:13px;line-height:1.2}
+.badge b{display:block;font-size:17px}
+.badge svg{width:24px;height:24px}
+.applinks{display:flex;flex-wrap:wrap;align-items:center;gap:18px}
+.applinks a.txt{color:var(--accent);font-weight:600;text-decoration:none}
+
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px}
+.feat{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:24px}
+.feat .ic{font-size:28px;width:52px;height:52px;border-radius:14px;display:grid;place-items:center;background:#f6e9d8;margin-bottom:12px}
+.feat h4{margin:0 0 6px;font-size:19px}
+.feat p{margin:0;color:var(--muted);font-size:15.5px}
+
+/* gallery */
+.gallery{display:flex;gap:20px;overflow-x:auto;padding:10px 4px 26px;scroll-snap-type:x mandatory}
+.gallery figure{margin:0;flex:0 0 230px;scroll-snap-align:start;text-align:center}
+.gallery .phone{position:relative;width:230px;transform:none;opacity:1}
+.gallery figure:first-child{margin-left:auto}.gallery figure:last-child{margin-right:auto}.gallery{scrollbar-width:none}.gallery::-webkit-scrollbar{display:none}
+.gallery figcaption{margin-top:12px;color:var(--muted);font-size:15px}
+
+/* about */
+.about{background:linear-gradient(135deg,#2b1a12,#4a2616);color:#f3e6d6;border-radius:30px;padding:46px;display:grid;grid-template-columns:1.3fr 1fr;gap:30px;align-items:center}
+.about h2{color:#fff6ea}
+.about p{color:#e2cdb3;margin:0 0 12px}
+.values{display:grid;gap:12px}
+.val{display:flex;gap:12px;align-items:flex-start;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:14px 16px}
+.val span{font-size:22px}
+.val b{display:block;color:#fff6ea}
+.val small{color:#d8bfa2;font-size:14px}
+
+.soon{text-align:center;padding:50px 0 20px}
+.soon .dots{display:inline-flex;gap:10px;margin-top:14px}
+.soon .dots i{width:62px;height:62px;border-radius:18px;border:2px dashed #d9c6af;display:grid;place-items:center;font-style:normal;color:#bfa78c;font-size:24px}
+
+footer{border-top:1px solid var(--line);margin-top:40px;padding:28px 0 40px;color:var(--muted);font-size:15px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center}
+footer a{color:var(--accent);text-decoration:none}
+.fbrand{display:flex;align-items:center;gap:8px;font-weight:700;color:var(--ink)}
+.fbrand svg{width:22px;height:22px}
+
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+
+@media(max-width:860px){
+  .hero .wrap{grid-template-columns:1fr;padding-top:104px;padding-bottom:60px;text-align:center}
+  .hero p.lead{margin-left:auto;margin-right:auto}
+  .btns{justify-content:center}
+  .flame-wrap{min-height:380px}
+  .features{grid-template-columns:1fr}
+  .about{grid-template-columns:1fr;padding:30px}
+  .appcard{grid-template-columns:1fr;text-align:center;justify-items:center}
+  .tags,.applinks{justify-content:center}
+  nav .links{display:none}
+}
+@media(max-width:420px){.phones{transform:scale(.86)}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
 </style>
 </head>
-<body><div class="wrap">
-<header><svg viewBox="0 0 32 32" fill="none"><path d="M16 3c3 4 5 6.5 5 9.5a5 5 0 0 1-10 0C11 9.5 13 7 16 3Z" fill="#e3a83a"/><path d="M8 20h16l-2 7H10l-2-7Z" fill="#a8552c"/><rect x="6" y="18" width="20" height="3" rx="1.5" fill="#a8552c"/></svg>Vela Apps</header>
-<h1>Apps sencillas que sirven para la vida diaria</h1>
-<p class="lead">Hechas con cariño en Mérida, Yucatán.</p>
+<body>
 
-<div class="app">
-  <img src="img/lampara.jpg" alt="Lámpara">
-  <div>
-    <h2>Lámpara · Encuentra la Palabra</h2>
-    <p>Encuentra versículos por tema o pregunta, lee la Biblia con contexto y aprende jugando con devocionales diarios. En español e inglés.</p>
-    <a href="lampara/privacidad.html">Política de privacidad</a>
+<nav><div class="wrap">
+  <a class="brand" href="#"><svg viewBox="0 0 32 32"><path d="M16 3c3 4 5 6.5 5 9.5a5 5 0 0 1-10 0C11 9.5 13 7 16 3Z" fill="#f3c77a"/><path d="M8 20h16l-2 7H10l-2-7Z" fill="#e9d6bd"/><rect x="6" y="18" width="20" height="3" rx="1.5" fill="#e9d6bd"/></svg>Vela Apps</a>
+  <div class="links"><a href="#apps">Apps</a><a href="#nosotros">Nosotros</a><a href="#contacto">Contacto</a></div>
+</div></nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">🕯️ Hecho en Mérida, Yucatán</span>
+      <h1 class="serif">Apps sencillas que <em>iluminan</em> tu día a día</h1>
+      <p class="lead">Creamos aplicaciones bonitas, fáciles de usar y sin distracciones. Sin anuncios, sin cuentas, sin rastreo: solo lo que necesitas.</p>
+      <div class="btns">
+        <a class="btn primary" href="#apps">Conoce Lámpara →</a>
+        <a class="btn ghost" href="#nosotros">Quiénes somos</a>
+      </div>
+    </div>
+    <div class="flame-wrap">
+      <div class="glow"></div>
+      <div class="phones">
+        <div class="phone p2"><img src="img/lampara-3.jpg" alt="Lámpara: Camino de devocionales"></div>
+        <div class="phone p3"><img src="img/lampara-4.jpg" alt="Lámpara: Temas"></div>
+        <div class="phone p1"><img src="img/lampara-1.jpg" alt="Lámpara: Versículo del día"></div>
+      </div>
+    </div>
   </div>
-</div>
-<p class="soon">Próximamente más apps.</p>
+</header>
 
-<footer>Contacto: <a href="mailto:contacto@elvelaapps.com">contacto@elvelaapps.com</a> · © 2026 Vela Apps</footer>
-</div></body>
+<section id="apps">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="kicker">Nuestras apps</div>
+      <h2 class="title serif">Lámpara · Encuentra la Palabra</h2>
+      <p class="sub">“Lámpara es a mis pies tu palabra, y lumbrera a mi camino.” — Salmo 119:105</p>
+    </div>
+
+    <div class="appcard reveal">
+      <div class="appicon"><svg viewBox="0 0 32 32"><defs><linearGradient id="fl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe8a3"/><stop offset="1" stop-color="#f0a531"/></linearGradient></defs><path d="M16 3c3 4 5 6.5 5 9.5a5 5 0 0 1-10 0C11 9.5 13 7 16 3Z" fill="url(#fl)"/><path d="M16 8.5c1.3 1.8 2.2 3 2.2 4.3a2.2 2.2 0 0 1-4.4 0c0-1.3.9-2.5 2.2-4.3Z" fill="#fff4d6"/><path d="M8 20h16l-2 7H10l-2-7Z" fill="#f3e6d6"/><rect x="6" y="18" width="20" height="3" rx="1.5" fill="#f3e6d6"/></svg></div>
+      <div>
+        <h3 class="serif">Encuentra lo que la Biblia dice sobre tu vida</h3>
+        <p>Busca por tema o pregunta, lee la Biblia completa con contexto de cada libro y capítulo, y crece cada día con devocionales cortos que se aprenden jugando.</p>
+        <div class="tags"><span class="tag">154 temas</span><span class="tag">Biblia completa</span><span class="tag">Español e inglés</span><span class="tag">Funciona sin internet</span><span class="tag">Sin anuncios</span></div>
+        <div class="applinks">
+          <span class="badge"><svg viewBox="0 0 24 24"><path fill="#34a853" d="M3.6 2.3 13.3 12l-9.7 9.7c-.4-.2-.6-.6-.6-1.1V3.4c0-.5.2-.9.6-1.1Z"/><path fill="#fbbc04" d="m16.6 15.3-3.3-3.3 3.3-3.3 3.8 2.2c1 .6 1 1.6 0 2.2l-3.8 2.2Z"/><path fill="#ea4335" d="M16.6 15.3 13.3 12l-9.7 9.7c.4.2.9.2 1.4-.1l11.6-6.3Z"/><path fill="#4285f4" d="M16.6 8.7 5 2.4c-.5-.3-1-.3-1.4-.1l9.7 9.7 3.3-3.3Z"/></svg><span>Muy pronto en<b>Google Play</b></span></span>
+          <a class="txt" href="lampara/privacidad.html">Política de privacidad</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="features">
+      <div class="feat reveal"><div class="ic">🔎</div><h4>Busca por lo que vives</h4><p>Ansiedad, familia, perdón, deudas… escribe lo que sientes y encuentra los pasajes que hablan de eso.</p></div>
+      <div class="feat reveal"><div class="ic">🌱</div><h4>Un camino diario</h4><p>Devocionales cortos con preguntas, rachas y logros para que leer la Biblia se vuelva un hábito.</p></div>
+      <div class="feat reveal"><div class="ic">📖</div><h4>Lee con contexto</h4><p>Quién escribió cada libro, cuándo y por qué. Guarda versículos, anota y compártelos por WhatsApp.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:20px">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="kicker">Por dentro</div>
+      <h2 class="title serif">Hecha con detalle, pensada para todos</h2>
+    </div>
+    <div class="gallery reveal">
+      <figure><div class="phone"><img src="img/lampara-1.jpg" alt="Versículo del día" loading="lazy"></div><figcaption>Tu versículo de cada día</figcaption></figure>
+      <figure><div class="phone"><img src="img/lampara-3.jpg" alt="Camino" loading="lazy"></div><figcaption>Aprende jugando</figcaption></figure>
+      <figure><div class="phone"><img src="img/lampara-4.jpg" alt="Temas" loading="lazy"></div><figcaption>154 temas de la vida</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="nosotros" style="padding-top:20px">
+  <div class="wrap">
+    <div class="about reveal">
+      <div>
+        <div class="kicker" style="color:#f3c77a">Nosotros</div>
+        <h2 class="title serif">Una vela encendida en Mérida</h2>
+        <p>Vela Apps es un pequeño estudio independiente en Mérida, Yucatán. Hacemos apps como nos gustaría encontrarlas: claras, cálidas y respetuosas con tu tiempo.</p>
+        <p>Cada app nace de una necesidad real y se cuida hasta el último detalle.</p>
+      </div>
+      <div class="values">
+        <div class="val"><span>🔒</span><div><b>Tu información es tuya</b><small>Todo se guarda en tu teléfono. Sin cuentas ni rastreo.</small></div></div>
+        <div class="val"><span>🚫</span><div><b>Sin anuncios</b><small>Nada que te distraiga de lo importante.</small></div></div>
+        <div class="val"><span>✨</span><div><b>Sencillas y bonitas</b><small>Diseño cuidado, fácil para cualquier edad.</small></div></div>
+      </div>
+    </div>
+
+    <div class="soon reveal">
+      <div class="kicker">Lo que viene</div>
+      <h2 class="title serif">Más apps en camino</h2>
+      <div class="dots"><i>?</i><i>?</i><i>?</i></div>
+    </div>
+  </div>
+</section>
+
+<footer id="contacto">
+  <div class="wrap">
+    <div class="fbrand"><svg viewBox="0 0 32 32"><path d="M16 3c3 4 5 6.5 5 9.5a5 5 0 0 1-10 0C11 9.5 13 7 16 3Z" fill="#e3a83a"/><path d="M8 20h16l-2 7H10l-2-7Z" fill="#a8552c"/><rect x="6" y="18" width="20" height="3" rx="1.5" fill="#a8552c"/></svg>Vela Apps</div>
+    <div>Contacto: <a href="mailto:contacto@elvelaapps.com">contacto@elvelaapps.com</a></div>
+    <div><a href="lampara/privacidad.html">Privacidad de Lámpara</a> · © 2026 Vela Apps</div>
+  </div>
+</footer>
+
+<script>
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
 </html>
