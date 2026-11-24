@@ -5,7 +5,7 @@
 <meta name="google-site-verification" content="D3t0MxvB0a0tFId-8whvX6R0agHBuRCTN-RmDX6-oNI" />
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>El Vela Apps · Apps sencillas para la vida diaria</title>
-<meta name="description" content="El Vela Apps: aplicaciones sencillas y bonitas, hechas con cariño en Mérida, Yucatán. Conoce Lámpara · Encuentra la Palabra.">
+<meta name="description" content="El Vela Apps: aplicaciones sencillas y bonitas, hechas con cariño en Mérida, Yucatán. Conoce Lámpara, Biblia cristiana (Reina-Valera 1909), y Paloma, Biblia católica (Torres Amat).">
 <meta property="og:title" content="El Vela Apps">
 <meta property="og:description" content="Apps sencillas que sirven para la vida diaria. Hechas en Mérida, Yucatán.">
 <meta property="og:image" content="https://elvelaapps.com/img/lampara-1.jpg">
@@ -72,6 +72,21 @@ h2.title{font-size:clamp(30px,3.6vw,42px);line-height:1.15;margin:8px 0 14px}
 .badge svg{width:24px;height:24px}
 .applinks{display:flex;flex-wrap:wrap;align-items:center;gap:18px}
 .applinks a.txt{color:var(--accent);font-weight:600;text-decoration:none}
+.base{display:flex;gap:10px;align-items:flex-start;background:#f8efe3;border:1px solid var(--line);border-radius:14px;padding:10px 14px;margin:0 0 14px;font-size:15px;color:#5a4636;text-align:left}
+.base b{color:var(--ink)}
+.appcard.pal{margin-top:22px;border-color:#e3dbf3;box-shadow:0 20px 50px rgba(91,58,155,.10)}
+.appicon.pal{background:none;overflow:hidden;padding:0}
+.appicon.pal img{width:100%;height:100%;object-fit:cover}
+.pal .tag{background:#ece6fb;color:#4b2f8f}
+.pal .base{background:#f3eefc;border-color:#e3dbf3}
+.pal .applinks a.txt{color:#5b3a9b}
+.cmp{width:100%;border-collapse:separate;border-spacing:0;margin-top:26px;background:var(--card);border:1px solid var(--line);border-radius:22px;overflow:hidden;font-size:16px}
+.cmp th,.cmp td{padding:14px 18px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+.cmp tr:last-child td{border-bottom:0}
+.cmp thead th{font-family:Georgia,serif;font-size:20px}
+.cmp thead th.l{color:var(--accent)}.cmp thead th.p{color:#5b3a9b}
+.cmp td:first-child{color:var(--muted);font-weight:600;width:28%}
+@media(max-width:600px){.cmp{font-size:14.5px}.cmp th,.cmp td{padding:10px 10px}}
 
 .features{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px}
 .feat{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:24px}
@@ -140,7 +155,7 @@ footer a{color:var(--accent);text-decoration:none}
       <h1 class="serif">Apps sencillas que <em>iluminan</em> tu día a día</h1>
       <p class="lead">Creamos aplicaciones bonitas, fáciles de usar y sin distracciones. Sin anuncios, sin cuentas, sin rastreo: solo lo que necesitas.</p>
       <div class="btns">
-        <a class="btn primary" href="#apps">Conoce Lámpara →</a>
+        <a class="btn primary" href="#apps">Conoce nuestras apps →</a>
         <a class="btn ghost" href="#nosotros">Quiénes somos</a>
       </div>
     </div>
@@ -159,14 +174,15 @@ footer a{color:var(--accent);text-decoration:none}
   <div class="wrap">
     <div class="reveal">
       <div class="kicker">Nuestras apps</div>
-      <h2 class="title serif">Lámpara · Encuentra la Palabra</h2>
-      <p class="sub">“Lámpara es a mis pies tu palabra, y lumbrera a mi camino.” — Salmo 119:105</p>
+      <h2 class="title serif">Dos Biblias, una para cada tradición</h2>
+      <p class="sub">Lámpara es para cristianos evangélicos y Paloma para católicos. Las dos son sencillas, bonitas, sin anuncios y funcionan sin internet.</p>
     </div>
 
     <div class="appcard reveal">
       <div class="appicon"><svg viewBox="0 0 32 32"><defs><linearGradient id="fl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe8a3"/><stop offset="1" stop-color="#f0a531"/></linearGradient></defs><path d="M16 3c3 4 5 6.5 5 9.5a5 5 0 0 1-10 0C11 9.5 13 7 16 3Z" fill="url(#fl)"/><path d="M16 8.5c1.3 1.8 2.2 3 2.2 4.3a2.2 2.2 0 0 1-4.4 0c0-1.3.9-2.5 2.2-4.3Z" fill="#fff4d6"/><path d="M8 20h16l-2 7H10l-2-7Z" fill="#f3e6d6"/><rect x="6" y="18" width="20" height="3" rx="1.5" fill="#f3e6d6"/></svg></div>
       <div>
-        <h3 class="serif">Encuentra lo que la Biblia dice sobre tu vida</h3>
+        <h3 class="serif">Lámpara · Encuentra la Palabra</h3>
+        <p class="base">📖 <span><b>Biblia cristiana (66 libros)</b>, basada en la <b>Reina-Valera 1909</b> en español y la <b>King James Version</b> en inglés.</span></p>
         <p>Busca por tema o pregunta, lee la Biblia completa con contexto de cada libro y capítulo, y crece cada día con devocionales cortos que se aprenden jugando.</p>
         <div class="tags"><span class="tag">154 temas</span><span class="tag">Biblia completa</span><span class="tag">Español e inglés</span><span class="tag">Funciona sin internet</span><span class="tag">Sin anuncios</span></div>
         <div class="applinks">
@@ -175,6 +191,30 @@ footer a{color:var(--accent);text-decoration:none}
         </div>
       </div>
     </div>
+
+    <div class="appcard pal reveal">
+      <div class="appicon pal"><img src="img/paloma-icon.jpg" alt="Ícono de Paloma"></div>
+      <div>
+        <h3 class="serif">Paloma · Biblia Católica</h3>
+        <p class="base">✝️ <span><b>Biblia católica completa (73 libros)</b>, basada en la <b>Torres Amat</b> actualizada a español actual y, en inglés, en la <b>Douay-Rheims</b> actualizada a inglés actual.</span></p>
+        <p>Versículo del día, santo del día con su estampita e historia, 162 temas de la vida y un camino diario de devocionales que sigue el año litúrgico, con juegos para aprender en familia.</p>
+        <div class="tags"><span class="tag">Santoral de 366 días</span><span class="tag">Año litúrgico</span><span class="tag">162 temas</span><span class="tag">Español e inglés</span><span class="tag">Sin anuncios</span></div>
+        <div class="applinks">
+          <span class="badge"><svg viewBox="0 0 24 24"><path fill="#34a853" d="M3.6 2.3 13.3 12l-9.7 9.7c-.4-.2-.6-.6-.6-1.1V3.4c0-.5.2-.9.6-1.1Z"/><path fill="#fbbc04" d="m16.6 15.3-3.3-3.3 3.3-3.3 3.8 2.2c1 .6 1 1.6 0 2.2l-3.8 2.2Z"/><path fill="#ea4335" d="M16.6 15.3 13.3 12l-9.7 9.7c.4.2.9.2 1.4-.1l11.6-6.3Z"/><path fill="#4285f4" d="M16.6 8.7 5 2.4c-.5-.3-1-.3-1.4-.1l9.7 9.7 3.3-3.3Z"/></svg><span>Muy pronto en<b>Google Play</b></span></span>
+        </div>
+      </div>
+    </div>
+
+    <table class="cmp reveal">
+      <thead><tr><th>¿Cuál es para ti?</th><th class="l">Lámpara</th><th class="p">Paloma</th></tr></thead>
+      <tbody>
+        <tr><td>Para</td><td>Cristianos evangélicos</td><td>Católicos</td></tr>
+        <tr><td>Biblia en español</td><td>Reina-Valera 1909</td><td>Torres Amat, en español actual</td></tr>
+        <tr><td>Biblia en inglés</td><td>King James Version</td><td>Douay-Rheims, en inglés actual</td></tr>
+        <tr><td>Libros</td><td>66</td><td>73 (incluye Tobías, Judit, Macabeos, Sabiduría, Eclesiástico y Baruc)</td></tr>
+        <tr><td>Extras</td><td>154 temas, camino diario y juegos</td><td>162 temas, santoral, año litúrgico y juegos</td></tr>
+      </tbody>
+    </table>
 
     <div class="features">
       <div class="feat reveal"><div class="ic">🔎</div><h4>Busca por lo que vives</h4><p>Ansiedad, familia, perdón, deudas… escribe lo que sientes y encuentra los pasajes que hablan de eso.</p></div>
@@ -191,9 +231,12 @@ footer a{color:var(--accent);text-decoration:none}
       <h2 class="title serif">Hecha con detalle, pensada para todos</h2>
     </div>
     <div class="gallery reveal">
-      <figure><div class="phone"><img src="img/lampara-1.jpg" alt="Versículo del día" loading="lazy"></div><figcaption>Tu versículo de cada día</figcaption></figure>
-      <figure><div class="phone"><img src="img/lampara-3.jpg" alt="Camino" loading="lazy"></div><figcaption>Aprende jugando</figcaption></figure>
-      <figure><div class="phone"><img src="img/lampara-4.jpg" alt="Temas" loading="lazy"></div><figcaption>154 temas de la vida</figcaption></figure>
+      <figure><div class="phone"><img src="img/lampara-1.jpg" alt="Versículo del día" loading="lazy"></div><figcaption>Lámpara: versículo del día</figcaption></figure>
+      <figure><div class="phone"><img src="img/lampara-3.jpg" alt="Camino" loading="lazy"></div><figcaption>Lámpara: aprende jugando</figcaption></figure>
+      <figure><div class="phone"><img src="img/lampara-4.jpg" alt="Temas" loading="lazy"></div><figcaption>Lámpara: 154 temas</figcaption></figure>
+      <figure><div class="phone"><img src="img/paloma-1.jpg" alt="Paloma: versículo del día" loading="lazy"></div><figcaption>Paloma: versículo del día</figcaption></figure>
+      <figure><div class="phone"><img src="img/paloma-2.jpg" alt="Paloma: santo del día" loading="lazy"></div><figcaption>Paloma: un santo cada día</figcaption></figure>
+      <figure><div class="phone"><img src="img/paloma-4.jpg" alt="Paloma: camino" loading="lazy"></div><figcaption>Paloma: camino litúrgico</figcaption></figure>
     </div>
   </div>
 </section>
