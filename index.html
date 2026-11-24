@@ -121,7 +121,12 @@ h2.title{font-size:clamp(30px,3.6vw,42px);line-height:1.15;margin:8px 0 14px}
 .val small{color:#d8bfa2;font-size:14px}
 
 .soon{text-align:center;padding:50px 0 20px}
-.soon .dots{display:inline-flex;gap:10px;margin-top:14px}
+.soon .dots{display:inline-flex;gap:14px;margin-top:14px;align-items:flex-start}
+.soon .nxt{display:flex;flex-direction:column;align-items:center;gap:8px;width:120px}
+.soon .nxt svg{width:92px;height:92px;border-radius:24px;box-shadow:0 12px 28px rgba(20,60,30,.35)}
+.soon .nxt b{font:700 14px/1.25 system-ui,sans-serif;color:var(--ink)}
+.soon .nxt small{font-size:12px;color:var(--muted);margin-top:-6px}
+.soon .dots i{margin-top:15px}
 .soon .dots i{width:62px;height:62px;border-radius:18px;border:2px dashed #d9c6af;display:grid;place-items:center;font-style:normal;color:#bfa78c;font-size:24px}
 
 footer{border-top:1px solid var(--line);margin-top:40px;padding:28px 0 40px;color:var(--muted);font-size:15px}
@@ -293,7 +298,21 @@ footer a{color:var(--accent);text-decoration:none}
     <div class="soon reveal">
       <div class="kicker">Lo que viene</div>
       <h2 class="title serif">Más apps en camino</h2>
-      <div class="dots"><i>?</i><i>?</i><i>?</i></div>
+      <div class="dots"><div class="nxt" title="¿Dónde está el Alux? · juego">
+        <svg viewBox="0 0 100 100" role="img" aria-label="¿Dónde está el Alux?">
+          <defs><linearGradient id="jg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2f8a4a"/><stop offset="1" stop-color="#0f3d22"/></linearGradient></defs>
+          <rect width="100" height="100" rx="24" fill="url(#jg)"/>
+          <circle cx="22" cy="20" r="3" fill="#d8f7a0" opacity=".7"/><circle cx="80" cy="30" r="2.4" fill="#d8f7a0" opacity=".6"/><circle cx="70" cy="14" r="1.8" fill="#d8f7a0" opacity=".6"/>
+          <path d="M50 24 L60 50 H40 Z" fill="#a8552c"/><path d="M47 31 L53 31 L51 36 L49 36Z" fill="#e3a83a"/>
+          <ellipse cx="50" cy="56" rx="15" ry="12" fill="#c98a5a"/>
+          <circle cx="44" cy="55" r="3.4" fill="#fff"/><circle cx="56" cy="55" r="3.4" fill="#fff"/>
+          <circle cx="45" cy="55.5" r="1.8" fill="#1b1b1b"/><circle cx="57" cy="55.5" r="1.8" fill="#1b1b1b"/>
+          <path d="M8 100 C10 70 30 62 38 72 C40 60 50 58 52 70 C58 58 72 60 72 74 C80 64 94 68 92 100 Z" fill="#1f6b36"/>
+          <path d="M-2 100 C4 80 18 74 26 84 C30 76 40 78 40 100Z M62 100 C64 82 80 76 88 86 C92 80 102 82 102 100Z" fill="#14532a"/>
+          <text x="80" y="88" font-size="20" font-weight="800" fill="#ffe08a" font-family="Georgia,serif">?</text>
+        </svg>
+        <b>¿Dónde está el Alux?</b><small>Juego · muy pronto</small>
+      </div><i>?</i><i>?</i></div>
     </div>
   </div>
 </section>
