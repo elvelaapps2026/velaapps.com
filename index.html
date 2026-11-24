@@ -106,6 +106,16 @@ h2.title{font-size:clamp(30px,3.6vw,42px);line-height:1.15;margin:8px 0 14px}
 .gallery figure{margin:0;flex:0 0 230px;scroll-snap-align:start;text-align:center}
 .gallery .phone{position:relative;width:230px;transform:none;opacity:1}
 .gallery figure:first-child{margin-left:auto}.gallery figure:last-child{margin-right:auto}.gallery{scrollbar-width:none}.gallery::-webkit-scrollbar{display:none}
+.gwrap{position:relative}
+.garr{position:absolute;top:calc(50% - 40px);z-index:3;width:48px;height:48px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--ink);font-size:22px;line-height:1;display:grid;place-items:center;cursor:pointer;box-shadow:0 8px 22px rgba(60,30,10,.18);transition:opacity .2s,transform .2s}
+.garr:hover{transform:scale(1.07)}
+.garr.prev{left:-8px}.garr.next{right:-8px}
+.garr[disabled]{opacity:0;pointer-events:none}
+.gtabs{display:flex;gap:8px;margin:0 0 6px}
+.gtabs button{font:600 15px system-ui,sans-serif;border:1px solid var(--line);background:var(--card);color:var(--muted);padding:8px 16px;border-radius:99px;cursor:pointer}
+.gtabs button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.gtabs button.pal.on{background:#5b3a9b;border-color:#5b3a9b}
+@media(max-width:600px){.garr{width:40px;height:40px;font-size:19px}.garr.prev{left:2px}.garr.next{right:2px}}
 .gallery figcaption{margin-top:12px;color:var(--muted);font-size:15px}
 
 .bteaser{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:26px}.bteaser a{position:relative;border-radius:20px;overflow:hidden;aspect-ratio:4/3;display:block;color:#fff;text-decoration:none}.bteaser img{width:100%;height:100%;object-fit:cover;transition:transform .4s}.bteaser a:hover img{transform:scale(1.05)}.bteaser span{position:absolute;left:0;right:0;bottom:0;padding:30px 16px 12px;background:linear-gradient(transparent,rgba(20,10,5,.8));font:600 18px Georgia,serif}
@@ -253,13 +263,17 @@ footer a{color:var(--accent);text-decoration:none}
       <div class="kicker">Por dentro</div>
       <h2 class="title serif">Hecha con detalle, pensada para todos</h2>
     </div>
-    <div class="gallery reveal">
+    <div class="gtabs reveal"><button data-g="0" class="on">Lámpara</button><button data-g="3" class="pal">Paloma</button></div>
+    <div class="gwrap reveal">
+    <button class="garr prev" aria-label="Anterior">‹</button><button class="garr next" aria-label="Siguiente">›</button>
+    <div class="gallery" id="gal">
       <figure><div class="phone"><img src="img/lampara-1.jpg" alt="Versículo del día" loading="lazy"></div><figcaption>Lámpara: versículo del día</figcaption></figure>
       <figure><div class="phone"><img src="img/lampara-3.jpg" alt="Camino" loading="lazy"></div><figcaption>Lámpara: aprende jugando</figcaption></figure>
       <figure><div class="phone"><img src="img/lampara-4.jpg" alt="Temas" loading="lazy"></div><figcaption>Lámpara: 154 temas</figcaption></figure>
       <figure><div class="phone"><img src="img/paloma-1.jpg" alt="Paloma: versículo del día" loading="lazy"></div><figcaption>Paloma: versículo del día</figcaption></figure>
       <figure><div class="phone"><img src="img/paloma-2.jpg" alt="Paloma: santo del día" loading="lazy"></div><figcaption>Paloma: un santo cada día</figcaption></figure>
       <figure><div class="phone"><img src="img/paloma-4.jpg" alt="Paloma: camino" loading="lazy"></div><figcaption>Paloma: camino litúrgico</figcaption></figure>
+    </div>
     </div>
   </div>
 </section>
@@ -328,6 +342,14 @@ footer a{color:var(--accent);text-decoration:none}
 <script>
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+(()=>{const g=document.getElementById('gal'); if(!g) return;
+ const pv=document.querySelector('.garr.prev'), nx=document.querySelector('.garr.next'), figs=[...g.querySelectorAll('figure')], tabs=[...document.querySelectorAll('.gtabs button')];
+ const step=()=>figs[0].getBoundingClientRect().width+20;
+ const upd=()=>{pv.disabled=g.scrollLeft<5; nx.disabled=g.scrollLeft+g.clientWidth>=g.scrollWidth-5;
+   const pal=figs[3].offsetLeft-g.offsetLeft<=g.scrollLeft+g.clientWidth/2; tabs[0].classList.toggle('on',!pal); tabs[1].classList.toggle('on',pal);};
+ pv.onclick=()=>g.scrollBy({left:-step(),behavior:'smooth'}); nx.onclick=()=>g.scrollBy({left:step(),behavior:'smooth'});
+ tabs.forEach(t=>t.onclick=()=>g.scrollTo({left:figs[+t.dataset.g].offsetLeft-g.offsetLeft-4,behavior:'smooth'}));
+ g.addEventListener('scroll',upd,{passive:true}); addEventListener('resize',upd); upd();})();
 </script>
 </body>
 </html>
