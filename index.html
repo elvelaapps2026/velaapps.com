@@ -72,6 +72,13 @@ h2.title{font-size:clamp(30px,3.6vw,42px);line-height:1.15;margin:8px 0 14px}
 .badge svg{width:24px;height:24px}
 .applinks{display:flex;flex-wrap:wrap;align-items:center;gap:18px}
 .applinks a.txt{color:var(--accent);font-weight:600;text-decoration:none}
+.promise{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:0 0 26px}
+.promise div{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px 14px;text-align:center;box-shadow:0 10px 26px rgba(90,50,20,.06)}
+.promise .i{font-size:28px;display:block;margin-bottom:6px}
+.promise b{display:block;font-size:17px;line-height:1.25}
+.promise small{display:block;color:var(--muted);font-size:14px;margin-top:4px;line-height:1.35}
+.hero .chk{display:flex;flex-wrap:wrap;gap:8px 16px;margin:-12px 0 26px;font-size:15px;color:#f3d9a8;font-weight:600}
+@media(max-width:860px){.promise{grid-template-columns:1fr 1fr}.hero .chk{justify-content:center}}
 .base{display:flex;gap:10px;align-items:flex-start;background:#f8efe3;border:1px solid var(--line);border-radius:14px;padding:10px 14px;margin:0 0 14px;font-size:15px;color:#5a4636;text-align:left}
 .base b{color:var(--ink)}
 .appcard.pal{margin-top:22px;border-color:#e3dbf3;box-shadow:0 20px 50px rgba(91,58,155,.10)}
@@ -154,6 +161,7 @@ footer a{color:var(--accent);text-decoration:none}
       <span class="eyebrow">🕯️ Hecho en Mérida, Yucatán</span>
       <h1 class="serif">Apps sencillas que <em>iluminan</em> tu día a día</h1>
       <p class="lead">Creamos aplicaciones bonitas, fáciles de usar y sin distracciones. Sin anuncios, sin cuentas, sin rastreo: solo lo que necesitas.</p>
+      <div class="chk"><span>✓ Pago único</span><span>✓ Funcionan sin internet</span><span>✓ Sin anuncios</span><span>✓ Sin compras dentro de la app</span></div>
       <div class="btns">
         <a class="btn primary" href="#apps">Conoce nuestras apps →</a>
         <a class="btn ghost" href="#nosotros">Quiénes somos</a>
@@ -175,7 +183,14 @@ footer a{color:var(--accent);text-decoration:none}
     <div class="reveal">
       <div class="kicker">Nuestras apps</div>
       <h2 class="title serif">Dos Biblias, una para cada tradición</h2>
-      <p class="sub">Lámpara es para cristianos evangélicos y Paloma para católicos. Las dos son sencillas, bonitas, sin anuncios y funcionan sin internet.</p>
+      <p class="sub">Lámpara es para cristianos evangélicos y Paloma para católicos. Las dos son sencillas, bonitas y respetan tu tiempo.</p>
+    </div>
+
+    <div class="promise reveal">
+      <div><span class="i">💳</span><b>Pagas una sola vez</b><small>Compras la app y es tuya para siempre. Sin suscripciones.</small></div>
+      <div><span class="i">📶</span><b>Funciona sin internet</b><small>Toda la Biblia y los contenidos vienen dentro de la app.</small></div>
+      <div><span class="i">🚫</span><b>Sin anuncios</b><small>Nada que te distraiga mientras lees y oras.</small></div>
+      <div><span class="i">🔓</span><b>Sin compras dentro</b><small>Todo está incluido desde el primer día. No hay nada más que pagar.</small></div>
     </div>
 
     <div class="appcard reveal">
@@ -184,7 +199,7 @@ footer a{color:var(--accent);text-decoration:none}
         <h3 class="serif">Lámpara · Encuentra la Palabra</h3>
         <p class="base">📖 <span><b>Biblia cristiana (66 libros)</b>, basada en la <b>Reina-Valera 1909</b> en español y la <b>King James Version</b> en inglés, con algunas expresiones antiguas actualizadas.</span></p>
         <p>Busca por tema o pregunta, lee la Biblia completa con contexto de cada libro y capítulo, y crece cada día con devocionales cortos que se aprenden jugando.</p>
-        <div class="tags"><span class="tag">154 temas</span><span class="tag">Biblia completa</span><span class="tag">Español e inglés</span><span class="tag">Funciona sin internet</span><span class="tag">Sin anuncios</span></div>
+        <div class="tags"><span class="tag">Pago único</span><span class="tag">Funciona sin internet</span><span class="tag">Sin anuncios</span><span class="tag">Sin compras dentro</span><span class="tag">154 temas</span><span class="tag">Español e inglés</span></div>
         <div class="applinks">
           <span class="badge"><svg viewBox="0 0 24 24"><path fill="#34a853" d="M3.6 2.3 13.3 12l-9.7 9.7c-.4-.2-.6-.6-.6-1.1V3.4c0-.5.2-.9.6-1.1Z"/><path fill="#fbbc04" d="m16.6 15.3-3.3-3.3 3.3-3.3 3.8 2.2c1 .6 1 1.6 0 2.2l-3.8 2.2Z"/><path fill="#ea4335" d="M16.6 15.3 13.3 12l-9.7 9.7c.4.2.9.2 1.4-.1l11.6-6.3Z"/><path fill="#4285f4" d="M16.6 8.7 5 2.4c-.5-.3-1-.3-1.4-.1l9.7 9.7 3.3-3.3Z"/></svg><span>Muy pronto en<b>Google Play</b></span></span>
           <a class="txt" href="lampara/privacidad.html">Política de privacidad</a>
@@ -198,7 +213,7 @@ footer a{color:var(--accent);text-decoration:none}
         <h3 class="serif">Paloma · Biblia Católica</h3>
         <p class="base">✝️ <span><b>Biblia católica completa (73 libros)</b>, basada en la <b>Torres Amat</b> actualizada a español actual y, en inglés, en la <b>Douay-Rheims</b> actualizada a inglés actual.</span></p>
         <p>Versículo del día, santo del día con su estampita e historia, 162 temas de la vida y un camino diario de devocionales que sigue el año litúrgico, con juegos para aprender en familia.</p>
-        <div class="tags"><span class="tag">Santoral de 366 días</span><span class="tag">Año litúrgico</span><span class="tag">162 temas</span><span class="tag">Español e inglés</span><span class="tag">Sin anuncios</span></div>
+        <div class="tags"><span class="tag">Pago único</span><span class="tag">Funciona sin internet</span><span class="tag">Sin anuncios</span><span class="tag">Sin compras dentro</span><span class="tag">Santoral de 366 días</span><span class="tag">Año litúrgico</span><span class="tag">Español e inglés</span></div>
         <div class="applinks">
           <span class="badge"><svg viewBox="0 0 24 24"><path fill="#34a853" d="M3.6 2.3 13.3 12l-9.7 9.7c-.4-.2-.6-.6-.6-1.1V3.4c0-.5.2-.9.6-1.1Z"/><path fill="#fbbc04" d="m16.6 15.3-3.3-3.3 3.3-3.3 3.8 2.2c1 .6 1 1.6 0 2.2l-3.8 2.2Z"/><path fill="#ea4335" d="M16.6 15.3 13.3 12l-9.7 9.7c.4.2.9.2 1.4-.1l11.6-6.3Z"/><path fill="#4285f4" d="M16.6 8.7 5 2.4c-.5-.3-1-.3-1.4-.1l9.7 9.7 3.3-3.3Z"/></svg><span>Muy pronto en<b>Google Play</b></span></span>
           <a class="txt" href="paloma/privacidad.html">Política de privacidad</a>
@@ -213,6 +228,8 @@ footer a{color:var(--accent);text-decoration:none}
         <tr><td>Biblia en español</td><td>Reina-Valera 1909, con algunas expresiones actualizadas</td><td>Torres Amat, en español actual</td></tr>
         <tr><td>Biblia en inglés</td><td>King James Version, con algunas expresiones actualizadas</td><td>Douay-Rheims, en inglés actual</td></tr>
         <tr><td>Libros</td><td>66</td><td>73 (incluye Tobías, Judit, Macabeos, Sabiduría, Eclesiástico y Baruc)</td></tr>
+        <tr><td>Precio</td><td>Pago único, sin compras dentro</td><td>Pago único, sin compras dentro</td></tr>
+        <tr><td>Sin internet</td><td>Sí, funciona completa</td><td>Sí, funciona completa</td></tr>
         <tr><td>Extras</td><td>154 temas, camino diario y juegos</td><td>162 temas, santoral, año litúrgico y juegos</td></tr>
       </tbody>
     </table>
@@ -268,7 +285,7 @@ footer a{color:var(--accent);text-decoration:none}
       </div>
       <div class="values">
         <div class="val"><span>🔒</span><div><b>Tu información es tuya</b><small>Todo se guarda en tu teléfono. Sin cuentas ni rastreo.</small></div></div>
-        <div class="val"><span>🚫</span><div><b>Sin anuncios</b><small>Nada que te distraiga de lo importante.</small></div></div>
+        <div class="val"><span>🚫</span><div><b>Sin anuncios ni compras dentro</b><small>Pagas una vez y todo está incluido. Nada que te distraiga de lo importante.</small></div></div>
         <div class="val"><span>✨</span><div><b>Sencillas y bonitas</b><small>Diseño cuidado, fácil para cualquier edad.</small></div></div>
       </div>
     </div>
