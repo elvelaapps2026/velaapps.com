@@ -298,6 +298,8 @@ body.quiz nav.tabs{display:none}
 .mtrack .mp{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:var(--accent);color:#fff;font-size:13px}
 .mtrack.on{border-color:#8b5cf6;background:color-mix(in srgb,#8b5cf6 10%,var(--bg))}.mtrack.on .mp{background:#8b5cf6}
 .vol{display:flex;align-items:center;gap:10px;margin-top:6px}.vol input{flex:1;accent-color:#8b5cf6}
+.bar{border-radius:99px;overflow:hidden}.bar i{display:block;height:100%;width:0;border-radius:99px}
+.askbg{position:fixed;inset:0;background:rgba(20,12,8,.55);display:flex;align-items:center;justify-content:center;z-index:999;padding:24px}.askbox{background:var(--card,#fffdf9);color:var(--ink,#2b2420);border-radius:20px;padding:22px 20px 16px;max-width:360px;width:100%;box-shadow:0 20px 50px rgba(0,0,0,.35)}.askbox p{margin:0 0 18px;font-size:17px;line-height:1.45}.askbox .row{display:flex;gap:10px;justify-content:flex-end}.askbox button{min-height:44px;padding:0 18px;border-radius:12px;border:0;font:inherit;font-weight:600;cursor:pointer}.askbox .no{background:transparent;color:var(--muted,#7a6d63)}.askbox .yes{background:var(--accent,#a8552c);color:#fff}
 </style>
 </head>
 <body>
@@ -729,6 +731,14 @@ function viewLeccion(u,l){
   $('#go-q').onclick=()=>startQuiz(u,l);
 }
 
+function ask(msg,okLabel,cb){
+  const d=document.createElement('div'); d.className='askbg';
+  d.innerHTML=`<div class="askbox" role="dialog" aria-modal="true"><p>${esc(msg)}</p><div class="row"><button class="no">${L('Cancelar','Cancel')}</button><button class="yes">${esc(okLabel)}</button></div></div>`;
+  document.body.appendChild(d);
+  const close=()=>d.remove();
+  d.querySelector('.no').onclick=close; d.onclick=e=>{ if(e.target===d) close(); };
+  d.querySelector('.yes').onclick=()=>{ close(); cb(); };
+}
 let QZ=null;
 function buildItems(u,l){
   const L=CAM[u].l[l], p=parseRef(L.v), text=plain(p);
